@@ -1,11 +1,12 @@
-"use client";
+'use client';
 
 import React from "react";
 
-import { sidebarLink } from "../../constants";
+
 import { usePathname } from "next/navigation";
 import { Link } from "lucide-react";
-import { cn } from "../../lib/utils";
+import { cn } from "../lib/utils";
+import { sidebarLink } from "../constants";
 
 
 const Sidebar = () => {
