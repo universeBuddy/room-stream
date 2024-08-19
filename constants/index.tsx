@@ -10,7 +10,7 @@
 
     label : 'Upcomming',
     route : '/upcomming',
-    imgUrl : '/icons/upcomming.svg',
+    imgUrl : '/icons/upcoming.svg',
 
 },
 {
@@ -31,7 +31,7 @@
 
     label : 'Personal Room',
     route : '/personal-room',
-    imgUrl : '/icons/presonal-room.svg',
+    imgUrl : '/icons/add-personal.svg',
 
 },
 ]
