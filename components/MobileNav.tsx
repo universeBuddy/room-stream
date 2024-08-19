@@ -1,21 +1,15 @@
-'use client'
+"use client";
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+
 import Image from "next/image";
 import Link from "next/link";
 import { sidebarLink } from "../constants";
-import {  usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { cn } from "../lib/utils";
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const MobileNav = () => {
-
-
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <section className="w-full max-w-[264px]">
       <Sheet>
@@ -43,28 +37,26 @@ const MobileNav = () => {
 
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
             <SheetClose asChild>
-              <section className="flex h-full flex-col gap-6 pt-16 tetx-white">
+              <section className="flex h-full flex-col gap-6 pt-16 text-white">
                 {sidebarLink.map((link) => {
                   const isActive =
-                    pathname === link.route || pathname.startsWith(link.route);
+                    pathname === link.route ;
                   return (
                     <Link
                       href={link.route}
                       key={link.label}
                       className={cn(
-                        "flex gap-4 items-center p-4 rounde-lg justify-start",
+                        "flex gap-4 items-center p-4 rounded-lg w-full max-w-60 ",
                         { "bg-blue-1": isActive }
                       )}
                     >
                       <Image
                         src={link.imgUrl}
                         alt={link.label}
-                        width={24}
-                        height={24}
+                        width={20}
+                        height={20}
                       />
-                      <p className="text-lg font-semibold max-lg:hidden">
-                        {link.label}
-                      </p>
+                      <p className="font-semibold">{link.label}</p>
                     </Link>
                   );
                 })}
