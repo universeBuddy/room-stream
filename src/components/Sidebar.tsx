@@ -4,8 +4,9 @@ import React from "react";
 
 import { sidebarLink } from "../../constants";
 import { usePathname } from "next/navigation";
-import { Link } from "lucide-react";
+
 import { cn } from "../../lib/utils";
+import Link from "next/link";
 
 
 const Sidebar = () => {
