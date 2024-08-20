@@ -1,19 +1,46 @@
-import React from "react";
+"use client";
+
+import Image from "next/image";
+import HomeCard from "./HomeCard";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 const MeetingTypeList = () => {
+  const router   = useRouter();
+  const [meetingState, setMeetingState] = useState<
+    "isSchedulingMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
+  >();
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-      <div
-        className="bg-orange-1 px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer"
-        onClick={() => {}}
-      >
-        <div className="flex-center glassmorphism size-12 rounded-[10px] ">
-
-
-
-            
-        </div>
-      </div>
+      <HomeCard
+        img="/icons/add-meeting.svg"
+        title="New Meeting"
+        description="Start an instant meeting"
+        handleClick={() => setMeetingState("isJoiningMeeting")}
+        className="bg-orange-1"
+      />
+      <HomeCard
+        img="/icons/schedule.svg"
+        title="Schedule Meeting "
+        description="Plan you Meeting"
+        handleClick={() => setMeetingState("isSchedulingMeeting")}
+        className="bg-blue-1"
+      />
+      <HomeCard
+        img="/icons/recording.svg"
+        title="View Recording"
+        description="Check out your Recording"
+        handleClick={() => setMeetingState("isJoiningMeeting")}
+        className="bg-purple-1"
+      />
+      <HomeCard
+        img="/icons/add-meeting.svg"
+        title="New Meeting"
+        description="Start an instant meeting"
+        handleClick={() => router.push('/recordings')}
+        className="bg-yellow-1"
+      />
     </section>
   );
 };

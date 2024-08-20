@@ -1,4 +1,4 @@
-import { fontFamily } from 'tailwindcss/defaultTheme'
+
 import tailwindcssAnimate from 'tailwindcss-animate'
 import { Config } from 'tailwindcss'
 
