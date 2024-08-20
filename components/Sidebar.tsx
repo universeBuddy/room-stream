@@ -25,7 +25,7 @@ const Sidebar = () => {
               key={link.label}
               className={cn(
                 "flex gap-4 items-center p-4 rounde-lg justify-start",
-                { "bg-blue-1": isActive, }
+                {"bg-blue-1": isActive,}
               )}
             >
               <Image 
