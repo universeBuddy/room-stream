@@ -33,7 +33,7 @@ const MeetingTypeList = () => {
     try {
       if (!values.dateTime) {
         toast({
-          title: "Please Select the Date and Time",
+          title: "Please Select the Date and Time 👀",
         });
         return;
       }
@@ -41,7 +41,7 @@ const MeetingTypeList = () => {
       const id = crypto.randomUUID();
       const call = client.call("default", id);
 
-      if (!call) throw new Error("Failed to create call");
+      if (!call) throw new Error("Failed to create call ❌");
 
       const startsAt =
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
@@ -62,12 +62,12 @@ const MeetingTypeList = () => {
         router.push(`/meeting/${call.id}`);
       }
       toast({
-        title: "Meeting Created",
+        title: "Meeting Created ✔",
       });
     } catch (error) {
       console.log(error);
       toast({
-        title: "Faild to create meeting",
+        title: "Faild to create meeting ❌",
       });
     }
   };
