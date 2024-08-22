@@ -156,7 +156,7 @@ const MeetingTypeList = () => {
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
             toast({ title: "Link Cpoied" });
-          }}
+          }} 
           image="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"
           buttonText="Copy Meeting Link"

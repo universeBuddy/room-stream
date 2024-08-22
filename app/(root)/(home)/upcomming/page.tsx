@@ -1,3 +1,4 @@
+import CallList from '@/components/CallList'
 import React from 'react'
 
 const Upcomming = () => {
@@ -6,7 +7,9 @@ const Upcomming = () => {
 
     <h1 className='text-3xl font-bold'>
      Upcomming
+    
 
+     <CallList type = "upcomming" />
     </h1>
   </section>
   )
