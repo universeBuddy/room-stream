@@ -17,6 +17,8 @@ export const theme: Config['theme'] = {
       dark: {
         1: '#1C1F2E',
         2: '#161925',
+        3:  '#213570',
+        4:  '#213570',
       },
       blue: {
         1: '#0E78F9',

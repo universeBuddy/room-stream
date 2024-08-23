@@ -1,3 +1,4 @@
+import CallList from '@/components/CallList'
 import React from 'react'
 
 const  Reacording= () => {
@@ -8,6 +9,7 @@ const  Reacording= () => {
         Recording
 
       </h1>
+      <CallList type ='recordings' />
     </section>
   )
 }
