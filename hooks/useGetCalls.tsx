@@ -1,11 +1,6 @@
 import { useUser } from "@clerk/nextjs";
-import {
-  Call,
-  setLogLevel,
-  useStreamVideoClient,
-} from "@stream-io/video-react-sdk";
+import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
-import { newDate } from "react-datepicker/dist/date_utils";
 
 export const useGetCalls = () => {
   const [calls, setCalls] = useState<Call[]>([]);
@@ -24,7 +19,6 @@ export const useGetCalls = () => {
           sort: [{ field: "starts_at", direction: -1 }],
           filter_conditions: {
             starts_at: { $exists: true },
-
             $or: [{ created_by_id: user.id }, { member: { $in: [user.id] } }],
           },
         });
@@ -38,8 +32,6 @@ export const useGetCalls = () => {
     loadCalls();
   }, [client, user?.id]);
 
-
-         
   const now = new Date();
 
   const endedCalls = calls.filter(({ state: { startsAt, endedAt } }: Call) => {
@@ -52,7 +44,7 @@ export const useGetCalls = () => {
   return {
     endedCalls,
     upcomingCalls,
-    recordings: calls,
+    callRecordings: calls,
     isLoading,
-  };
+  }
 };

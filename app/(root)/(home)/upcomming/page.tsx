@@ -9,7 +9,7 @@ const Upcomming = () => {
      Upcomming
     
 
-     <CallList type = "upcomming" />
+     <CallList type = "upcoming" />
     </h1>
   </section>
   )

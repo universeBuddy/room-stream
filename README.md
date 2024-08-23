@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+ ## Room Stream
+Room Stream is a chat application built with Next.js, TypeScript, ShadCN UI, and the Stream Chat API. This project provides a real-time chat experience with a modern UI.
 
 ## Getting Started
 
-First, run the development server:
+ 1. Setup
 
-```bash
-npm run dev
+Clone the repository:
+
+git clone https://github.com/universeBuddy/room-stream
+cd room-stream
+
+2. Install dependencies:
+
+yarn install
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create a .env.local file in the root of the project and add the following:
 
-## Learn More
+NEXT_PUBLIC_STREAM_API_KEY=your_stream_api_key
+STREAM_API_SECRET=your_stream_api_secret
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+Replace your_stream_api_key and your_stream_api_secret with your actual Stream API credentials.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+ ## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Real-time Messaging: Leverage the Stream Chat API for real-time messaging.
+Modern UI: Built with ShadCN UI for a sleek and responsive design.
+TypeScript Support: Strongly typed codebase for better developer experience and fewer runtime errors.
+Next.js: Server-side rendering, static site generation, and API routes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+
+Chat Rooms: Create or join chat rooms and start real-time conversations.
+User Authentication: Secure authentication flow (Add description based on your authentication method).
+Custom UI Components: Utilizes ShadCN UI components for a consistent design language.
+
+
+
+
+
