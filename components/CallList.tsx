@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import MeetingCards from "./MeetingCards";
 import Loader from "./Loader";
+import { useToast } from "./ui/use-toast";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
@@ -16,6 +17,8 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
 
   const router = useRouter();
+
+  const { toast } = useToast();
   const getCalls = () => {
     switch (type) {
       case "ended":
@@ -43,17 +46,20 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 
   useEffect(() => {
     const fetchRecording = async () => {
-      const callData = await Promise.all(
-        callRecordings.map((meeting) => meeting.queryRecordings())
-      );
+      try {
+        const callData = await Promise.all(
+          callRecordings.map((meeting) => meeting.queryRecordings())
+        );
 
-      const recordings = callData
-        .filter(call => call.recordings.length > 0)
-        .flatMap(call =>call.recordings);
+        const recordings = callData
+          .filter((call) => call.recordings.length > 0)
+          .flatMap((call) => call.recordings);
 
-      setRecordings(recordings);
+        setRecordings(recordings);
+      } catch (error) {
+        toast({ title: "try again later" });
+      }
     };
-
     if (type === "recordings") fetchRecording();
   }, [type, callRecordings]);
 
@@ -71,10 +77,11 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 ? "/icons/previous.svg"
                 : type === "upcoming"
                 ? "/icons/upcoming.svg"
-                : "/icons/recording.svg"
+                : "/icons/recordings.svg"
             }
             title={
-              (meeting as Call).state?.custom.description.substring(0, 20) || meeting.filename.substring(0,20) ||
+              (meeting as Call).state?.custom.description.substring(0, 20) ||
+              meeting.filename.substring(0, 20) ||
               "No Description"
             }
             date={
